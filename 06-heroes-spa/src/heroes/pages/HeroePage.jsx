@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { getHeroeById } from '../helpers';
 
 export const HeroePage = () => {
 
   const {id} = useParams();
-  const heroe = getHeroeById(id)
+  // const heroe = getHeroeById(id);
+  const heroe = useMemo(()=> getHeroeById(id), [id] );
 
   const navigate = useNavigate()
 
   const onNavigateBack = ()=> {
-    navigate('/login') 
+    navigate('/marvel') 
   }
 
   
@@ -23,7 +24,7 @@ export const HeroePage = () => {
         <img 
           src= {`../assets/heroes/${heroe.id}.jpg`} 
           alt={heroe.superhero} 
-          className='img-thumbnail'
+          className='img-thumbnail animate__animated animate__fadeIn'
         />
       </div>
 
@@ -38,7 +39,7 @@ export const HeroePage = () => {
           <p>{heroe.characters}</p>
 
           <button 
-            className='btn btn-primary'
+            className='btn btn-primary '
             onClick={onNavigateBack}
           >
               Regresar
