@@ -11,7 +11,7 @@ export const HeroePage = () => {
   const navigate = useNavigate()
 
   const onNavigateBack = ()=> {
-    navigate('/marvel') 
+    navigate('/heroes/marvel') 
   }
 
   
@@ -19,10 +19,10 @@ export const HeroePage = () => {
     return <Navigate to="/marvel" /> 
   }
   return (
-    <div className="row mt-5">
-      <div className="col-4">
+    <div className="row mt-5 px-5">
+      <div className="col-2">
         <img 
-          src= {`../assets/heroes/${heroe.id}.jpg`} 
+          src= {`/heroes/${heroe.id}.jpg`} 
           alt={heroe.superhero} 
           className='img-thumbnail animate__animated animate__fadeIn'
         />

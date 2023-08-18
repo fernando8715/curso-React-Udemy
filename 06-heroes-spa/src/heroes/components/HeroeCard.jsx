@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export const HeroeCard = ({heroe}) => {
 
-    const heroeImageUrl = `../assets/heroes/${heroe.id}.jpg`;
+    const heroeImageUrl = `/heroes/${heroe.id}.jpg`;
 
     const CharactersByHeroe = ({heroe})=> {
 
@@ -33,7 +33,7 @@ export const HeroeCard = ({heroe}) => {
                             </small>
                         </p>
 
-                        <Link to={`/heroe/${heroe.id}`}>
+                        <Link to={`/heroes/${heroe.id}`}>
                             Más...
                         </Link>
 
