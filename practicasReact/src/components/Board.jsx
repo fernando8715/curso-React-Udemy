@@ -1,21 +1,36 @@
-import { useState } from "react"
 import { Square } from "./Square"
+import {calculateWin} from '../helpers/calculateWin'
 import '../css/Game.css'
 
-export const Board = () => {
+export const Board = ({squares, xIsNext, onPlay}) => {
 
-  const [squares, setSquares] = useState(Array(9).fill(null));
-
-
+  const winner = calculateWin(squares);
+  
+  let status;
+  
+  if(winner) {
+    status = 'Winner: ' + winner
+  }else {
+    status = `Next player: ${(xIsNext) ? 'X' : 'O'}`
+  };
+  
   const handleClick = (i)=> {
+
+    if (squares[i] || calculateWin(squares)) return;
+
     const nextSquare = squares.slice();
-    nextSquare[i] = 'X';
-    setSquares(nextSquare);
+
+    (xIsNext) 
+      ? nextSquare[i] = 'X'
+      : nextSquare[i] = 'O';
+    onPlay(nextSquare);   
   }
+
 
   return (
     <div >
-        <h3 className="text-center">Tic tac toe game</h3>
+        <h3 className="text-center title">Tic-Tac-Toe Game</h3>
+        <h4 className="text-center">{status}</h4>
         <div className="board">
           <div>
             <Square value={squares[0]} onSquareClick={()=>handleClick(0)}/>
