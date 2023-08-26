@@ -2,21 +2,17 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
-.logo {
+.logo__react {
+  display: flex;
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
+  justify-content: center;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+
 
 @keyframes logo-spin {
   from {
@@ -39,4 +35,44 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.header__logo {
+  display: flex;
+  justify-content: center;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  min-width: 270px;
+  max-width: 300px;
+}
+
+input[type="text"],
+select,
+textarea
+{
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+label {
+  font-weight: bold;
+}
+
+.formulario__btn {
+  background-color: green;
+  color: #fff;
+  max-width: 85px;
+  max-height: 40px;
+  transition-property: all;
+  transition-duration: 3000;
+}
+
+.formulario__btn:hover {
+  background-color: rgb(1, 87, 1);
+  color: #fff;
+  border: 1px solid rgb(1, 50, 1);
 }
